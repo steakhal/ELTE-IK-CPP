@@ -1,0 +1,12 @@
+install:
+  sudo apt-get update -qq
+  sudo apt-get install -qq ninja-build miktex
+  
+  git clone --branch=cmake https://github.com/steakhal/ELTE-IK-CPP.git steakhal/ELTE-IK-CPP
+  cd steakhal/ELTE-IK-CPP
+
+script:
+  mkdir build
+  cd build
+  cmake -G Ninja ..
+  ninja
