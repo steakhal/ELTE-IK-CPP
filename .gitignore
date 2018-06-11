@@ -10,3 +10,6 @@
 *.out
 *.exe
 *.o
+
+#folders
+build/*

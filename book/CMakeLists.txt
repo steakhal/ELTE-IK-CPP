@@ -1,0 +1,17 @@
+
+add_subdirectory(01gy_cpp)
+add_subdirectory(02gy_cpp)
+add_subdirectory(03gy_cpp)
+add_subdirectory(04gy_cpp)
+add_subdirectory(05gy_cpp)
+add_subdirectory(06gy_cpp)
+add_subdirectory(07gy_cpp)
+add_subdirectory(08gy_cpp)
+add_subdirectory(09gy_cpp)
+add_subdirectory(10gy_cpp)
+add_subdirectory(11gy_cpp)
+add_subdirectory(12gy_cpp)
+add_subdirectory(cpp_book)
+
+add_subdirectory(01extra_cpp)
+add_subdirectory(02extra_cpp)
