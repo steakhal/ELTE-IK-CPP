@@ -1,13 +1,9 @@
-- os: linux
-  compiler: gcc
-  addons:
-    apt:
-      sources: [ 'ubuntu-toolchain-r-test', 'kalakris-cmake' ]
-      packages: [ 'g++-4.8', 'libstdc++-4.8-dev', 'ninja-build', 'cmake' ]
-  env: CMAKE_BUILD_TYPE=RELEASE
+branches:
+  only:
+  - cmake_support
 
-# Build steps
+before_install:
+  - sudo apt-get install -y -qq ninja-build miktex
+
 script:
-  - mkdir build
-  - cd build
-  - ${DEPS_DIR}/cmake/bin/cmake -G Ninja .. && ninja
+  - ls
