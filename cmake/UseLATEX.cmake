@@ -480,8 +480,12 @@ function(latex_execute_latex)
     message("\n\nLaTeX command failed")
     message("${full_command_original}")
     message("Log output:")
-    file(READ "${LATEX_WORKING_DIRECTORY}/${LATEX_TARGET}.log" log_output)
-    message("${log_output}")
+    if(EXISTS "${LATEX_WORKING_DIRECTORY}/${LATEX_TARGET}.log")
+      file(READ "${LATEX_WORKING_DIRECTORY}/${LATEX_TARGET}.log" log_output)
+      message("${log_output}")
+    else()
+      message("${LATEX_WORKING_DIRECTORY}/${LATEX_TARGET}.log" logfile is missing, could not open it)
+    endif()
     message(FATAL_ERROR
       "Successfully executed LaTeX, but LaTeX returned an error.")
   endif()
@@ -1744,6 +1748,7 @@ function(add_latex_targets_internal)
 
     if(PDFLATEX_COMPILER)
       add_custom_command(OUTPUT ${output_dir}/${LATEX_TARGET}.pdf
+        #COMMAND ${CMAKE_COMMAND} -E env TEXINPUTS=C:\\Users\\steakhal\\Desktop\\ELTE-IK-CPP\\include\;C:\\Users\\steakhal\\Desktop\\ELTE-IK-CPP\\include\\img ${make_pdf_command}
         COMMAND ${make_pdf_command}
         DEPENDS ${make_pdf_depends}
         )
