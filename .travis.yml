@@ -5,17 +5,7 @@ branches:
   - cmake_support
 
 before_install:
-  - sudo apt-get install -y -qq ninja-build xsltproc
-  - wget http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run
-  - chmod +x qt-opensource-linux-x64-5.7.0.run
-  - ./qt-opensource-linux-x64-5.7.0.run
-  - git clone https://github.com/MiKTeX/miktex.git
-  - cd miktex
-  - mkdir build
-  - cd build
-  - cmake ..
-  - make
-  - make install
+  - sudo apt-get install texlive
 
 script:
   - ls
