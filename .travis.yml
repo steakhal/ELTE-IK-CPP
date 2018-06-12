@@ -5,7 +5,11 @@ branches:
   - cmake_support
 
 before_install:
-  - sudo apt-get install texlive
+  - sudo apt-get install ninja-build texlive
 
 script:
-  - ls
+  - mkdir build
+  - cd build
+  - export TEXINPUTS=$(pwd)/include;$(pwd)/include/img
+  - cmake -G Ninja ..
+  - ninja
