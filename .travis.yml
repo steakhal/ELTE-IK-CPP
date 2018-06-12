@@ -5,7 +5,7 @@ branches:
   - cmake_support
 
 before_install:
-  - sudo apt-get install -y -qq ninja-build
+  - sudo apt-get install -y -qq ninja-build xsltproc
   - git clone https://github.com/MiKTeX/miktex.git
   - cd miktex
   - mkdir build
