@@ -1,0 +1,17 @@
+babel-hungarian
+oberdiek
+cm-super
+ec
+ellipsis
+float
+listings
+multirow
+paralist
+pgf
+pgfopts
+subfiles
+ulem
+xcolor
+xstring
+ms
+

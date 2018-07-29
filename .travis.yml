@@ -5,11 +5,23 @@ branches:
   - cmake_support
 
 before_install:
-  - sudo apt-get install ninja-build texlive
+    # installing the tools
+    - sudo apt-get update -qq
+    - sudo apt-get install -y -qq cmake ninja-build wget xzdec
+
+    # installing TexLive related packages (~~basic schema)
+    - chmod +x ./.travis/install-texlive-latest.sh
+    - ./.travis/install-texlive-latest.sh
 
 script:
+  - source ./.travis/export_variables.sh
+  - which pdflatex
+  - which tlmgr
+
+  - tlmgr init-usertree
+  - tlmgr install $(cat latex_packages.txt)
+
   - mkdir build
   - cd build
-  - export TEXINPUTS=$(pwd)/include;$(pwd)/include/img
   - cmake -G Ninja ..
   - ninja
