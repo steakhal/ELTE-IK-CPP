@@ -9,9 +9,10 @@ before_install:
     - sudo apt-get update -qq
     - sudo apt-get install -y -qq cmake ninja-build wget xzdec
 
-    # installing TexLive related packages (~~basic schema)
+    # installing latest TexLive (basic schema)
     - chmod +x ./.travis/install-texlive-latest.sh
     - ./.travis/install-texlive-latest.sh
+    - sudo apt-get install -y -qq texlive-lang-european
 
 script:
   - source ./.travis/export_variables.sh
@@ -20,6 +21,13 @@ script:
 
   - tlmgr init-usertree
   - tlmgr install $(cat latex_packages.txt)
+  
+  # initialize hyphens
+  # - mktexlsr
+  # - updmap-sys
+  # - fmtutil-sys --no-error-if-no-engine=luajittex,mfluajit --byhyphen "language.dat"
+  # - fmtutil-sys --no-error-if-no-engine=luajittex,mfluajit --byhyphen "language.def"
+  # - fmtutil-sys --no-error-if-no-engine=luajittex,mfluajit --byhyphen "language.dat.lua"
 
   - mkdir build
   - cd build

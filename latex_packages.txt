@@ -1,4 +1,5 @@
 babel-hungarian
+hyphen-hungarian
 oberdiek
 cm-super
 ec
@@ -14,4 +15,3 @@ ulem
 xcolor
 xstring
 ms
-
